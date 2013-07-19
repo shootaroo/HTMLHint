@@ -11,12 +11,12 @@ describe('Formatter: checkstyle', function () {
 
     it('format', function () {
         var output = formatter.format([
-            {line:10,col:11,type:'error',message:'m1',rule:{id:'1',description:'d1',link:'link1'}},
-            {line:100,col:22,type:'warn',message:'<m2>',rule:{id:'2',description:'d2',link:'link2'}}
+            {line:10,col:11,type:'error',message:'m1',rule:{id:'tag-pair',description:'d1',link:'link1'}},
+            {line:100,col:22,type:'warn',message:'<m2>',rule:{id:'id-unique',description:'d2',link:'link2'}}
         ], 'test.html');
         expect(output).to.be('\t<file name="test.html">\n' +
-            '\t\t<error line="10" column="11" severity="error" message="m1" source="link1"/>\n' +
-            '\t\t<error line="100" column="22" severity="warn" message="&lt;m2&gt;" source="link2"/>\n' +
+            '\t\t<error line="10" column="11" severity="error" message="m1" source="htmlhint.tag-pair"/>\n' +
+            '\t\t<error line="100" column="22" severity="warn" message="&lt;m2&gt;" source="htmlhint.id-unique"/>\n' +
             '\t</file>');
     });
 
