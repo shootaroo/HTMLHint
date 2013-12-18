@@ -49,6 +49,10 @@ var HTMLHint = (function (undefined) {
         return reporter.messages;
     };
 
+    HTMLHint.getFormatter = function (id) {
+      return require('../lib/formatters/' + id);
+    };
+
     return HTMLHint;
 
 })();
